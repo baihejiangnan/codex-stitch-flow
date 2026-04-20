@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "stitch": {
+      "command": "node",
+      "args": [
+        "/absolute/path/to/codex-stitch-frontend-kit/server/stitch-proxy.mjs"
+      ],
+      "env": {
+        "GOOGLE_CLOUD_PROJECT": "replace-with-your-google-cloud-project-id"
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "codex-stitch-flow",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "通过 MCP 连接 Codex 与 Google Stitch：包含 OAuth 配置、本地 HTML 预览、AI UI 生成和浏览器验证的前端工作流。",
+  "scripts": {
+    "mcp:stitch": "node server/stitch-proxy.mjs",
+    "verify:stitch": "node scripts/verify-stitch.mjs",
+    "check": "node --check server/proxy-env.mjs && node --check server/stitch-auth.mjs && node --check server/stitch-proxy.mjs && node --check scripts/verify-stitch.mjs"
+  },
+  "dependencies": {
+    "@google/stitch-sdk": "^0.1.0",
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "google-auth-library": "^10.6.2",
+    "undici": "^8.1.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

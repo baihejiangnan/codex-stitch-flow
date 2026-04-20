@@ -1,0 +1,11 @@
+[mcp_servers.stitch]
+type = "stdio"
+command = "node"
+args = ["D:\\frontxuan\\codex-stitch-frontend-kit\\server\\stitch-proxy.mjs"]
+startup_timeout_sec = 30
+tool_timeout_sec = 300
+
+[mcp_servers.stitch.env]
+GOOGLE_CLOUD_PROJECT = "replace-with-your-google-cloud-project-id"
+# HTTP_PROXY = "http://127.0.0.1:7897"
+# HTTPS_PROXY = "http://127.0.0.1:7897"

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stitch Frontend Preview</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --background: #10120f;
+        --surface: #1b1f19;
+        --text: #f4f0df;
+        --muted: #aaa48f;
+        --accent: #d8ff45;
+        --cyan: #36c7d0;
+        --border: rgba(244, 240, 223, 0.18);
+        --radius: 8px;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-width: 320px;
+        margin: 0;
+        color: var(--text);
+        background:
+          linear-gradient(90deg, rgba(216, 255, 69, 0.05) 1px, transparent 1px),
+          linear-gradient(0deg, rgba(244, 240, 223, 0.045) 1px, transparent 1px),
+          var(--background);
+        background-size: 48px 48px;
+      }
+
+      main {
+        width: min(1180px, 100%);
+        margin: 0 auto;
+        padding: 24px;
+      }
+
+      h1 {
+        max-width: 920px;
+        margin: 64px 0 20px;
+        font-size: clamp(2.2rem, 7vw, 5.8rem);
+        line-height: 0.98;
+        text-wrap: balance;
+      }
+
+      p {
+        max-width: 720px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+        gap: 16px;
+        margin-top: 40px;
+      }
+
+      .panel {
+        min-width: 0;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: rgba(27, 31, 25, 0.78);
+        padding: 18px;
+      }
+
+      button {
+        min-height: 42px;
+        border: 1px solid var(--accent);
+        border-radius: var(--radius);
+        color: #10120f;
+        background: var(--accent);
+        padding: 0 16px;
+        font-weight: 760;
+      }
+
+      button:focus-visible {
+        outline: 2px solid var(--cyan);
+        outline-offset: 3px;
+      }
+
+      @media (max-width: 760px) {
+        main {
+          padding: 16px;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p>STITCH / CODEX PREVIEW</p>
+      <h1>把这个 HTML 预览当作进入 Stitch 和 Codex 的第一张草图。</h1>
+      <p>
+        先用这个静态页面确认信息结构、中文排版和视觉方向，再让 Stitch 生成更高保真的 UI 变化，最后由 Codex 落成真实前端代码。
+      </p>
+
+      <section class="grid" aria-label="预览工作区">
+        <div class="panel">
+          <h2>页面任务</h2>
+          <p>描述用户要完成的核心动作，以及这个页面要传达的情绪和风格。</p>
+          <button type="button">生成方向</button>
+        </div>
+        <div class="panel">
+          <h2>交付规则</h2>
+          <p>Codex 不能直接复制不可维护的导出代码，必须重写成语义化、响应式、可验证的前端实现。</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
