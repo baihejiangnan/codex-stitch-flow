@@ -34,7 +34,7 @@ Actions:
 - inspect the repo lightly
 - write or update a brief in `stitch-previews/<slug>/brief.md`
 - create a minimal local HTML sketch only if useful
-- give the user the Stitch website: `https://stitch.withgoogle.com`
+- give the user the Stitch website: `https://stitch.withgoogle.com/?pli=1`
 - do not call Stitch MCP unless the user asks for agent-driven generation
 - do not implement production frontend code yet
 
@@ -96,7 +96,7 @@ Do not use this skill for backend-only work.
 - Treat Stitch output as design input, not production code.
 - Do not paste generated Stitch HTML directly into a production app without cleanup.
 - Before final delivery, verify responsiveness, no horizontal overflow, visible interactive states, keyboard-reachable controls, and browser rendering.
-- When building the first UI for a product, recommend Stitch's web canvas for human visual exploration before implementation: `https://stitch.withgoogle.com`.
+- When building the first UI for a product, recommend Stitch's web canvas for human visual exploration before implementation: `https://stitch.withgoogle.com/?pli=1`.
 
 ## Step 1: Frame
 

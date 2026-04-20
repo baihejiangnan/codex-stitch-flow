@@ -42,7 +42,7 @@ GitHub 描述：
 | 设计模式 | 需要 AI 给视觉方向 | 调用一次 | Stitch 参考 + 工程落地 |
 | 完整模式 | 重要 demo / 设计系统 / 教程案例 | 调用并保存资产 | 预览 + Stitch 资产 + 多视口验证 |
 
-如果你正在第一次设计一个产品，推荐先去 Stitch 做前端 UI 方向探索：<https://stitch.withgoogle.com>。  
+如果你正在第一次设计一个产品，推荐先去 Stitch 做前端 UI 方向探索：<https://stitch.withgoogle.com/?pli=1>。  
 确定方向后，再把截图、HTML、DESIGN.md 或项目地址交给 Codex 落地。
 
 ## 里面有什么
@@ -203,7 +203,7 @@ Copy-Item -Recurse .\skills\stitch-frontend-workflow "$env:USERPROFILE\.codex\sk
 这个 kit 的 skill 会要求 Codex：
 
 1. 默认选择最轻的可行模式，不把完整流程当成默认。
-2. 新产品首次 UI 推荐用户先去 Stitch 官网探索方向：<https://stitch.withgoogle.com>。
+2. 新产品首次 UI 推荐用户先去 Stitch 官网探索方向：<https://stitch.withgoogle.com/?pli=1>。
 3. 新前端页面可先产出本地 HTML 预览，但极简/快速模式可以跳过。
 4. Stitch MCP 可用时，只在设计/完整模式里调用 Stitch。
 5. Stitch 导出的 HTML 只能作为设计参考，不能无脑复制进生产代码。

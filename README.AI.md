@@ -14,7 +14,7 @@ Work carefully. Do not ask the user to copy files manually when you can update l
 
 Choose the lightest mode that satisfies the user request:
 
-- `minimal`: product is not settled yet. Produce a brief and Stitch prompt. Recommend Stitch web: `https://stitch.withgoogle.com`. Do not implement production code.
+- `minimal`: product is not settled yet. Produce a brief and Stitch prompt. Recommend Stitch web: `https://stitch.withgoogle.com/?pli=1`. Do not implement production code.
 - `fast`: user wants speed. Skip Stitch. Implement directly and verify lightly.
 - `design`: visual direction matters. Call Stitch once, save reference assets if available, then implement.
 - `full`: complete documented workflow. Create preview, call Stitch, save assets, implement, verify multiple viewports.
@@ -26,7 +26,7 @@ For a product's first UI pass, prefer `minimal` unless the user explicitly asks 
 Official Stitch website:
 
 ```text
-https://stitch.withgoogle.com
+https://stitch.withgoogle.com/?pli=1
 ```
 
 ## Expected Repo
@@ -240,7 +240,7 @@ For early product exploration, give the user this instead:
 
 ```text
 使用 stitch-frontend-workflow skill 的极简模式。
-帮我整理产品首页简报和 Stitch 提示词。我会先去 https://stitch.withgoogle.com 探索 UI 方向。
+帮我整理产品首页简报和 Stitch 提示词。我会先去 https://stitch.withgoogle.com/?pli=1 探索 UI 方向。
 ```
 
 ## Safety
