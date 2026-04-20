@@ -17,6 +17,60 @@ The goal is not to copy Stitch output blindly. The goal is to use Stitch as a de
 4. Convert the selected design direction into project code.
 5. Verify in a browser.
 
+## Modes
+
+The workflow has four modes. If the user does not specify a mode, choose the lightest mode that can satisfy the request.
+
+### Minimal Mode
+
+Use when the user is still defining the product or asks for the first version of a product UI.
+
+Goal:
+- avoid spending time and tokens on full implementation too early
+- produce a clean product brief and a Stitch-ready prompt
+- recommend that the user explores the UI directly in Stitch first
+
+Actions:
+- inspect the repo lightly
+- write or update a brief in `stitch-previews/<slug>/brief.md`
+- create a minimal local HTML sketch only if useful
+- give the user the Stitch website: `https://stitch.withgoogle.com`
+- do not call Stitch MCP unless the user asks for agent-driven generation
+- do not implement production frontend code yet
+
+### Fast Mode
+
+Use for ordinary frontend pages where the user wants speed.
+
+Actions:
+- skip Stitch by default
+- implement directly in the current project
+- run basic syntax checks and one desktop/mobile visual check when possible
+
+### Design Mode
+
+Use when visual direction matters but full workflow overhead is not justified.
+
+Actions:
+- create a concise brief
+- call Stitch MCP once to generate or retrieve one screen
+- save Stitch result metadata and screenshot when available
+- implement the selected direction in project code
+- verify desktop and mobile
+
+### Full Mode
+
+Use for important product surfaces, demos, design-system work, or when the user explicitly asks for the complete workflow.
+
+Actions:
+- create local HTML preview
+- generate or retrieve Stitch screen
+- save HTML, screenshot, JSON, and design context
+- rewrite into project code
+- verify desktop, mobile, and narrow mobile
+
+Do not default to Full Mode. Full Mode is valuable for proving or documenting a workflow, but it is expensive.
+
 ## When To Use
 
 Use this skill for:
@@ -35,13 +89,14 @@ Do not use this skill for backend-only work.
 ## Operating Rules
 
 - Always inspect the existing project before editing.
-- If the task is a new frontend page, create a standalone HTML preview first unless the user explicitly asks to skip it.
+- If the task is a new frontend page, create a standalone HTML preview first unless the selected mode is Minimal or Fast, or the user explicitly asks to skip it.
 - Put previews in `stitch-previews/<slug>/index.html` or another local preview folder that matches the project.
-- If Stitch MCP tools are available, use them to create or retrieve design screens.
+- If Stitch MCP tools are available, use them to create or retrieve design screens only in Design or Full Mode.
 - If Stitch MCP is unavailable or unauthenticated, continue with the local HTML preview and explain the missing configuration.
 - Treat Stitch output as design input, not production code.
 - Do not paste generated Stitch HTML directly into a production app without cleanup.
 - Before final delivery, verify responsiveness, no horizontal overflow, visible interactive states, keyboard-reachable controls, and browser rendering.
+- When building the first UI for a product, recommend Stitch's web canvas for human visual exploration before implementation: `https://stitch.withgoogle.com`.
 
 ## Step 1: Frame
 

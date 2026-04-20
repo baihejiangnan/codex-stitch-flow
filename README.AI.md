@@ -10,6 +10,25 @@ Codex can create a local HTML preview first, use Stitch MCP to generate or read 
 
 Work carefully. Do not ask the user to copy files manually when you can update local files yourself.
 
+## Runtime Modes
+
+Choose the lightest mode that satisfies the user request:
+
+- `minimal`: product is not settled yet. Produce a brief and Stitch prompt. Recommend Stitch web: `https://stitch.withgoogle.com`. Do not implement production code.
+- `fast`: user wants speed. Skip Stitch. Implement directly and verify lightly.
+- `design`: visual direction matters. Call Stitch once, save reference assets if available, then implement.
+- `full`: complete documented workflow. Create preview, call Stitch, save assets, implement, verify multiple viewports.
+
+Do not default to `full`. It is expensive and should be reserved for important demos, design-system work, or explicit requests.
+
+For a product's first UI pass, prefer `minimal` unless the user explicitly asks the AI to run Stitch MCP. The user can often get better taste decisions by opening Stitch directly, exploring variants, then returning with a chosen screenshot or DESIGN.md.
+
+Official Stitch website:
+
+```text
+https://stitch.withgoogle.com
+```
+
 ## Expected Repo
 
 You are inside or near:
@@ -213,8 +232,15 @@ Give the user this:
 
 ```text
 使用 stitch-frontend-workflow skill。
-通过 Stitch MCP 创建一个中文 AI 工作流页面设计。
-先生成本地 HTML 预览，再让 Stitch 生成 UI 方向，最后把选定方向落到当前前端项目并做浏览器截图验证。
+使用设计模式，通过 Stitch MCP 创建一个中文 AI 工作流页面设计。
+让 Stitch 生成 UI 方向，然后把选定方向落到当前前端项目并做浏览器截图验证。
+```
+
+For early product exploration, give the user this instead:
+
+```text
+使用 stitch-frontend-workflow skill 的极简模式。
+帮我整理产品首页简报和 Stitch 提示词。我会先去 https://stitch.withgoogle.com 探索 UI 方向。
 ```
 
 ## Safety

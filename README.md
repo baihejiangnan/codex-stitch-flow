@@ -31,6 +31,20 @@ GitHub 描述：
 
 你也可以把项目地址丢给你的 AI，让你的 AI 帮你完成配置。给 AI 看的完整操作说明在 [README.AI.md](./README.AI.md)。
 
+## 模式选择
+
+默认不要每次都跑完整流程。这个仓库支持四种模式：
+
+| 模式 | 适合场景 | 是否调用 Stitch | 输出 |
+|---|---|---:|---|
+| 极简模式 | 产品第一次成形，还没确定视觉方向 | 推荐打开官网，MCP 可选 | 简报 + Stitch 提示词 |
+| 快速模式 | 普通前端页面，追求速度 | 不调用 | 直接实现 + 基础验证 |
+| 设计模式 | 需要 AI 给视觉方向 | 调用一次 | Stitch 参考 + 工程落地 |
+| 完整模式 | 重要 demo / 设计系统 / 教程案例 | 调用并保存资产 | 预览 + Stitch 资产 + 多视口验证 |
+
+如果你正在第一次设计一个产品，推荐先去 Stitch 做前端 UI 方向探索：<https://stitch.withgoogle.com>。  
+确定方向后，再把截图、HTML、DESIGN.md 或项目地址交给 Codex 落地。
+
 ## 里面有什么
 
 - `skills/stitch-frontend-workflow/SKILL.md`：给 Codex 用的工作流技能。
@@ -41,6 +55,7 @@ GitHub 描述：
 - `templates/`：`DESIGN.md`、页面简报、本地 HTML 预览模板。
 - `examples/`：可以直接复制给 Codex 的第一次运行提示词。
 - `CONTRIBUTORS.md`：记录这个工作流的共同创作者。
+- `docs/workflow-modes.md`：解释极简、快速、设计、完整四种模式。
 
 ## 快速开始
 
@@ -164,8 +179,15 @@ Copy-Item -Recurse .\skills\stitch-frontend-workflow "$env:USERPROFILE\.codex\sk
 
 ```text
 使用 stitch-frontend-workflow skill。
-帮我做一个中文 AI 工作流控制台页面。
-先生成 HTML 预览，再用 Stitch MCP 生成 UI 方向，最后落到当前前端项目里。
+使用设计模式，帮我做一个中文 AI 工作流控制台页面。
+先用 Stitch MCP 生成 UI 方向，再落到当前前端项目里。
+```
+
+产品还没定型时可以说：
+
+```text
+使用 stitch-frontend-workflow skill 的极简模式。
+帮我整理产品首页简报和 Stitch 提示词，我想先去 Stitch 官网探索 UI 方向。
 ```
 
 ## 我们实际跑通时踩过的坑
@@ -180,11 +202,12 @@ Copy-Item -Recurse .\skills\stitch-frontend-workflow "$env:USERPROFILE\.codex\sk
 
 这个 kit 的 skill 会要求 Codex：
 
-1. 新前端页面先产出本地 HTML 预览，除非用户明确跳过。
-2. Stitch MCP 可用时，优先用 Stitch 生成或读取设计方向。
-3. Stitch MCP 不可用时，不阻塞，继续做本地预览并说明缺什么。
-4. Stitch 导出的 HTML 只能作为设计参考，不能无脑复制进生产代码。
-5. 落地工程后必须检查响应式、交互、可访问性和浏览器截图。
+1. 默认选择最轻的可行模式，不把完整流程当成默认。
+2. 新产品首次 UI 推荐用户先去 Stitch 官网探索方向：<https://stitch.withgoogle.com>。
+3. 新前端页面可先产出本地 HTML 预览，但极简/快速模式可以跳过。
+4. Stitch MCP 可用时，只在设计/完整模式里调用 Stitch。
+5. Stitch 导出的 HTML 只能作为设计参考，不能无脑复制进生产代码。
+6. 落地工程后必须检查响应式、交互、可访问性和浏览器截图。
 
 ## 截图
 
@@ -201,6 +224,7 @@ docs/images/
 
 - [README.AI.md](./README.AI.md)：给 AI agent 的自主配置说明。
 - [CONTRIBUTORS.md](./CONTRIBUTORS.md)：贡献者和协作说明。
+- [docs/workflow-modes.md](./docs/workflow-modes.md)：四种运行模式。
 - [docs/oauth-adc-setup.md](./docs/oauth-adc-setup.md)：OAuth ADC 细节。
 - [docs/setup-stitch-mcp.md](./docs/setup-stitch-mcp.md)：MCP 接入说明。
 - [examples/first-run-request.md](./examples/first-run-request.md)：第一次让 Codex 运行的提示词。
